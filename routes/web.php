@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test', function () {
+    echo "This is test page";
+});
+
+
+Route::any('contact-us',[\App\Http\Controllers\ContactUsController::class, 'index'])->name('contact-us');

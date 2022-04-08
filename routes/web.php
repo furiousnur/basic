@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('/');
 
-Route::get('/test', function () {
-    echo "This is test page";
-});
+Route::get('/about', function () {
+    echo "This is about page";
+})->name('about')->middleware('checkAge');
 
 
 Route::any('contact-us',[\App\Http\Controllers\ContactUsController::class, 'index'])->name('contact-us');

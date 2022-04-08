@@ -23,3 +23,13 @@ Route::get('/about', function () {
 
 
 Route::any('contact-us',[\App\Http\Controllers\ContactUsController::class, 'index'])->name('contact-us');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

@@ -1,8 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Hello! This is ... <b>{{\Illuminate\Support\Facades\Auth::user()->name}}</b>
-            <b style="float: right;"> Total Users: {{count($users)}}</b>
+            All Category
         </h2>
     </x-slot>
 
@@ -20,18 +19,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @forelse($users as $index=>$user)
-                    <tr>
-                        <th scope="row">{{$index+1}}</th>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{Carbon\Carbon::parse($user->created_at)->diffForHumans()}}</td>
-{{--                        <td>{{date_format($user->created_at,'d-m-Y')}}</td>--}}
-                        <td>{{Carbon\Carbon::parse($user->created_at)->format('M d Y')}}</td>
-                    </tr>
+                    {{--@forelse($users as $index=>$user)
+                        <tr>
+                            <th scope="row">{{$index+1}}</th>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{Carbon\Carbon::parse($user->created_at)->diffForHumans()}}</td>
+                            --}}{{--                        <td>{{date_format($user->created_at,'d-m-Y')}}</td>--}}{{--
+                            <td>{{Carbon\Carbon::parse($user->created_at)->format('M d Y')}}</td>
+                        </tr>
                     @empty
                         <h4>No Data Found</h4>
-                    @endforelse
+                    @endforelse--}}
                     </tbody>
                 </table>
             </div>

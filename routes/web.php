@@ -24,12 +24,12 @@ Route::get('/about', function () {
 
 Route::any('contact-us',[\App\Http\Controllers\ContactUsController::class, 'index'])->name('contact-us');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified' ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+//        $users = \App\Models\User::all();
+        $users = \Illuminate\Support\Facades\DB::table('users')->get();
+        return view('dashboard', compact('users'));
     })->name('dashboard');
+
+    Route::resource('category',\App\Http\Controllers\CategoryController::class);
 });

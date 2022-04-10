@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
   <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
 
-  
+
   <!-- PLUGINS CSS STYLE -->
   <link href="{{ asset('backend/assets/plugins/toaster/toastr.min.css')}}" rel="stylesheet" />
   <link href="{{ asset('backend/assets/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
@@ -50,7 +50,7 @@
     <div class="mobile-sticky-body-overlay"></div>
 
     <div class="wrapper">
-      
+
               <!--
           ====================================
           ——— LEFT SIDEBAR WITH FOOTER
@@ -58,7 +58,7 @@
         -->
      @include('admin.body.sidebar')
 
-      
+
 
       <div class="page-wrapper">
                   <!-- Header -->
@@ -179,13 +179,13 @@
 
 
         <div class="content-wrapper">
-          <div class="content">	
-               
-          
+          <div class="content">
+
+
 @yield('admin')
 
-                
-</div> 
+
+</div>
         </div>
 
                   <footer class="footer mt-auto">
@@ -210,7 +210,7 @@
       </div>
     </div>
 
-    
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCn8TFXGg17HAUcNpkwtxxyT9Io9B_NcM" defer></script>
 <script src="{{ asset('backend/assets/plugins/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -252,9 +252,9 @@
 
     case 'error':
     toastr.error(" {{ Session::get('message') }} ");
-    break; 
+    break;
  }
- @endif 
+ @endif
 </script>
 
 

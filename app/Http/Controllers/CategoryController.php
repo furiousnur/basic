@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        /*Query Builder*/
+        $categories = DB::table('categories')
+                        ->join('users', 'categories.user_id', 'users.id')
+                        ->select('categories.*', 'users.name')
+                        ->latest()->paginate(5);
+//        $categories = Category::latest()->paginate(5);
         return view('admin.category.index', compact('categories'));
     }
 
@@ -46,7 +52,7 @@ class CategoryController extends Controller
            'category_name' => $request->category_name,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Category added successfully');
     }
 
     /**

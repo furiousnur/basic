@@ -21,18 +21,21 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($categories as $index=>$category)
+                            @forelse($categories as $category)
                                 <tr>
-                                    <th scope="row">{{$index+1}}</th>
-                                    <td>{{$category->user_id}}</td>
+                                    <th scope="row">{{$categories->firstItem()+$loop->index}}</th>
+{{--                                    <td>{{$category->user->name}}</td>--}}
+                                    <td>{{$category->name}}</td>
                                     <td>{{$category->category_name}}</td>
-                                    <td>{{$category->created_at->diffForHumans()}}</td>
+{{--                                    <td>{{$category->created_at->diffForHumans()}}</td>--}}
+                                    <td>{{\Carbon\Carbon::parse($category->created_at)->diffForHumans()}}</td>
                                 </tr>
                             @empty
                                 <h4>No Data Found</h4>
                             @endforelse
                             </tbody>
                         </table>
+                        {{$categories->links()}}
                     </div>
                 </div>
                 <div class="col-md-4">
